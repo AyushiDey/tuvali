@@ -51,7 +51,7 @@ class Wallet: WalletProtocol {
     }
     
     fileprivate func getAdvPayload(_ openId4VpURI: OpenId4vpURI) -> Data? {
-        guard let name = openId4VpURI.getName(), let data = (name + "_").data(using: .utf8), let hexPublickey = openId4VpURI.getHexPK() else {
+        guard let name = openId4VpURI.getName(), let data = (name + "__").data(using: .utf8), let hexPublickey = openId4VpURI.getHexPK() else {
             return nil
         }
         return data + hexStringToData(string: String(hexPublickey.prefix(10)))
